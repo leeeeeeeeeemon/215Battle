@@ -4,6 +4,7 @@ public class Cat extends Animal {
     {
         this.name = "Koshak";
         this.age = 3;
+        this.attack = 14;
     }
 
     void setAge(int age){
@@ -11,6 +12,7 @@ public class Cat extends Animal {
             this.age = age;
         }
     }
+
 
 
     void disployInfo(){
@@ -32,10 +34,15 @@ public class Cat extends Animal {
 
     @Override
     void punch(Animal enemy) {
-
         Random rnd = new Random();
-        int punch = attack + rnd.nextInt(-5,5);
+        int bonusDamage = 0;
+        for(Weapon wp : weapons){
+            bonusDamage += wp.damageIncr;
+        }
+
+        int punch = attack + bonusDamage + rnd.nextInt(-5, 5);
         enemy.hp -= punch;
-        System.out.println(name + " Ударил палкой " + enemy.name + " хп осталось: " + enemy.hp);
+        System.out.println(name + " ударил палкой c силой "+ punch + " " + enemy.name + " , у противника" +
+                "осталось хп: " + enemy.hp);
     }
 }

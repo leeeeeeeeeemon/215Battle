@@ -6,27 +6,25 @@ public class Main {
 
         barsik.setAge(-5);
 
-        Cat g1 = new Cat();
-        Cat g2 = new Cat("Kruz");
 
         barsik.disployInfo();
-        g1.disployInfo();
-        g2.disployInfo();
 
         Dog d1 = new Dog();
+
+        Weapon sword = new Weapon(15);
+
+        barsik.weapons.add(sword);
 
         battle(barsik, d1);
     }
 
     static void battle(Animal an1, Animal an2){
         System.out.println("Battle");
-        while(an1.hp > 0 && an2.hp > 0){
+        while (an1.hp > 0 && an2.hp > 0){
             an1.punch(an2);
             an2.punch(an1);
         }
-        if (an1.hp <= 0) System.out.println("Победил " + an2.name);
-        if (an2.hp <= 0) System.out.println("Победил " + an1.name);
-
-
+        if(an1.hp <= 0) System.out.println("Победил " + an2.name);
+        if(an2.hp <= 0) System.out.println("Победил " + an1.name);
     }
 }
