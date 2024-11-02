@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Cat extends Animal {
+public class Cat extends Animal implements Soundble, Test {
     {
         this.name = "Koshak";
         this.age = 3;
@@ -32,6 +32,8 @@ public class Cat extends Animal {
 
     }
 
+
+
     @Override
     void punch(Animal enemy) {
         Random rnd = new Random();
@@ -40,9 +42,14 @@ public class Cat extends Animal {
             bonusDamage += wp.damageIncr;
         }
 
-        int punch = attack + bonusDamage + rnd.nextInt(-5, 5);
+        int punch = attack + bonusDamage;
         enemy.hp -= punch;
         System.out.println(name + " ударил палкой c силой "+ punch + " " + enemy.name + " , у противника" +
                 "осталось хп: " + enemy.hp);
+    }
+
+    @Override
+    public void sound() {
+        System.out.println("Meow");
     }
 }

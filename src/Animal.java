@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Animal {
+public abstract class Animal {
     String name;
     protected int age;
     int hp = 50;
@@ -8,7 +8,7 @@ public class Animal {
 
     ArrayList<Weapon> weapons = new ArrayList<Weapon>();
 
-    void punch(Animal enemy){
+    abstract void sound();
 
-    }
+    abstract void punch(Animal enemy);
 }

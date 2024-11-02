@@ -7,15 +7,23 @@ public class Main {
         barsik.setAge(-5);
 
 
-        barsik.disployInfo();
 
+        barsik.disployInfo();
         Dog d1 = new Dog();
+
+        barsik.sound();
+        d1.sound();
 
         Weapon sword = new Weapon(15);
 
         barsik.weapons.add(sword);
 
-        battle(barsik, d1);
+        //battle(barsik, d1);
+
+        Soundble an1 = new Dog();
+        an1.sound();
+        ((Dog)an1).punch(barsik);
+
     }
 
     static void battle(Animal an1, Animal an2){
